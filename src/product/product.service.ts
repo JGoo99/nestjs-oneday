@@ -30,7 +30,7 @@ export class ProductService {
     await this.productRepository.update(id, productDto);
   }
 
-  async deleteById(id: string): Promise<void> {
+  async deleteBy(id: string): Promise<void> {
     await this.productRepository.delete(id);
   }
 }

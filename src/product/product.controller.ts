@@ -23,19 +23,19 @@ export class ProductController {
 
   // get one
   @Get(':id')
-  async findOne(@Param('id') id: string): Promise<Product> {
+  async find(@Param('id') id: string): Promise<Product> {
     return await this.productService.findBy(id);
   }
 
   // create one
   @Post()
-  async createOne(@Body() createProductDto: CreateProductDto): Promise<void> {
+  async create(@Body() createProductDto: CreateProductDto): Promise<void> {
     await this.productService.create(createProductDto);
   }
 
   // update (patch)
   @Patch(':id')
-  async updateOne(
+  async update(
     @Param('id') id: string,
     @Body() productDto: CreateProductDto,
   ): Promise<void> {
@@ -44,7 +44,7 @@ export class ProductController {
 
   // delete one
   @Delete(':id')
-  async deleteOne(@Param('id') id: string): Promise<void> {
-    await this.productService.deleteById(id);
+  async delete(@Param('id') id: string): Promise<void> {
+    await this.productService.deleteBy(id);
   }
 }
