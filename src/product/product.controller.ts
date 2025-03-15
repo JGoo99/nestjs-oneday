@@ -4,13 +4,12 @@ import {
   Delete,
   Get,
   Param,
-  ParseIntPipe,
   Patch,
   Post,
 } from '@nestjs/common';
-import { ProductService } from './product.service';
-import { Product } from './entities/product.entity';
 import { CreateProductDto } from './dto/create-product.dto';
+import { Product } from './entities/product.entity';
+import { ProductService } from './product.service';
 
 @Controller('products')
 export class ProductController {
@@ -23,9 +22,9 @@ export class ProductController {
   }
 
   // get one
-  @Get()
-  async findOne(@Body() productDto: CreateProductDto): Promise<Product> {
-    return await this.productService.findBy(productDto);
+  @Get(':id')
+  async findOne(@Param('id') id: string): Promise<Product> {
+    return await this.productService.findBy(id);
   }
 
   // create one

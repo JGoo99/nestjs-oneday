@@ -13,8 +13,8 @@ export class ProductService {
     return this.productRepository.find();
   }
 
-  async findBy(productDto: CreateProductDto): Promise<Product> {
-    const product = await this.productRepository.findOneBy(productDto);
+  async findBy(id: string): Promise<Product> {
+    const product = await this.productRepository.findOneBy({ id: id });
     if (!product) {
       throw new NotFoundException('product not found');
     }
