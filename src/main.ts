@@ -5,6 +5,14 @@ import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
+  app.setGlobalPrefix('api');
+  app.enableCors({
+    origin: [],
+    credentals: false,
+  });
+
+  // npm install @nestjs/terminus
+
   const config = new DocumentBuilder()
     .setTitle('NestJS oneday')
     .setDescription('The NestJS oneday API description')

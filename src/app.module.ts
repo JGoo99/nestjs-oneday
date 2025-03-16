@@ -1,9 +1,11 @@
 import * as Joi from '@hapi/joi';
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
-import { DatabaseModule } from './database/database.module';
-import { ProductModule } from './product/product.module';
 import { CommentsModule } from './comments/comments.module';
+import { DatabaseModule } from './database/database.module';
+import { HealthController } from './health/health.controller';
+import { ProductModule } from './product/product.module';
+import { HealthModule } from './health/health.module';
 
 @Module({
   imports: [
@@ -19,6 +21,7 @@ import { CommentsModule } from './comments/comments.module';
     DatabaseModule,
     ProductModule,
     CommentsModule,
+    HealthModule,
   ],
 })
 export class AppModule {}
