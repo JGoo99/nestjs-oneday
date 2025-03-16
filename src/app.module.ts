@@ -3,9 +3,8 @@ import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { CommentsModule } from './comments/comments.module';
 import { DatabaseModule } from './database/database.module';
-import { HealthController } from './health/health.controller';
-import { ProductModule } from './product/product.module';
 import { HealthModule } from './health/health.module';
+import { ProductModule } from './product/product.module';
 
 @Module({
   imports: [
